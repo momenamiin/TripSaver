@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "718904215558",
+    "firebase_url": "https://trip-saver-1519778616185.firebaseio.com",
+    "project_id": "trip-saver-1519778616185",
+    "storage_bucket": "trip-saver-1519778616185.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718904215558:android:f41f44f3260ff961",
+        "android_client_info": {
+          "package_name": "com.momenamiin.udacity.tripsaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718904215558-om6mo2eicf39romv7lid4m63ut66nlij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZETp_RuVprGAMJm54_nswaqUsBA9IfKY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
