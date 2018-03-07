@@ -15,13 +15,29 @@
       },
       "oauth_client": [
         {
+          "client_id": "718904215558-1gkh2fqutg1jp3mgv2bs6vbjm718k7rg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.momenamiin.udacity.tripsaver",
+            "certificate_hash": "bdbef6ed4fba75aadd2dc79366b9df7e59c9699c"
+          }
+        },
+        {
+          "client_id": "718904215558-ntm8r807etmeh5ncs13btimc891re5r8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.momenamiin.udacity.tripsaver",
+            "certificate_hash": "05017451d73d4db2fe87d2f74fb2bcef4202b766"
+          }
+        },
+        {
           "client_id": "718904215558-om6mo2eicf39romv7lid4m63ut66nlij.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZETp_RuVprGAMJm54_nswaqUsBA9IfKY"
+          "current_key": "AIzaSyCZTFR4LUV8qtO7-xEC8p67S476ElVwZ9Y"
         }
       ],
       "services": {
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718904215558-om6mo2eicf39romv7lid4m63ut66nlij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

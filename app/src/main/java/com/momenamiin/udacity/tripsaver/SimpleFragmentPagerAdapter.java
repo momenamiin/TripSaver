@@ -30,7 +30,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     // This determines the number of tabs
     @Override
     public int getCount() {
-        return 4;
+        return 2;
     }
 
     // This determines the title for each tab

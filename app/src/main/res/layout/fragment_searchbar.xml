@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.momenamiin.udacity.tripsaver.SearchbarFragment">
+    tools:context="com.momenamiin.udacity.tripsaver.SearchbarFragment"
+    android:background="@drawable/backgroundbitmap"
+    android:backgroundTintMode="screen"
+    android:backgroundTint="@color/theme_primary">
 
 
    <RelativeLayout
