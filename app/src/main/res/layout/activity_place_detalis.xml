@@ -1,11 +1,22 @@
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
+        <ImageButton
+            android:id="@+id/action_up"
+            android:layout_width="56dp"
+            android:layout_height="61dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:contentDescription="@string/UpButton"
+            android:src="@drawable/ic_arrow_back"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:elevation="5dp"
+            tools:layout_editor_absoluteY="-5dp" />
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
@@ -84,6 +95,7 @@
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.NestedScrollView
+            android:focusable="true"
             android:fitsSystemWindows="true"
             android:visibility="visible"
             android:id="@+id/scrollview"
@@ -94,21 +106,165 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-                <TextView
-                    android:id="@+id/article_body"
-                    style="?android:attr/textAppearanceMedium"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"
-                    android:linksClickable="true"
-                    android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
-                    android:layout_marginRight="@dimen/detail_inner_horiz_margin"
-                    android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
-                    android:paddingBottom="@dimen/detail_body_bottom_margin"
-                    android:textColor="@color/text_detalis_colors"
-                    android:textColorLink="@color/theme_accent"
-                    android:textSize="@dimen/detail_body_text_size" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:contentDescription="@string/placeNumber"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:src="@drawable/ic_local_phone_black_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size"
+                            android:layout_height="wrap_content"
+                            style="?android:attr/textAppearanceMedium"
+                            android:text="Phone : "/>
+                        <TextView
+                            android:id="@+id/text_phone_num"
+                            style="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:contentDescription="@string/placeWebsite"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:src="@drawable/ic_web_black_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size"
+                            android:layout_height="wrap_content"
+                            style="?android:attr/textAppearanceMedium"
+                            android:text="website : "/>
+                        <TextView
+                            android:id="@+id/text_website"
+                            style="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:contentDescription="@string/placeAddress"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:src="@drawable/ic_home_black_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size"
+                            android:layout_height="wrap_content"
+                            style="?android:attr/textAppearanceMedium"
+                            android:text="Adress : "/>
+                        <TextView
+                            android:id="@+id/text_adress"
+                            style="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:contentDescription="@string/placeattribution"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size"
+                            android:layout_height="wrap_content"
+                            style="?android:attr/textAppearanceMedium"
+                            android:text="Attribution : "/>
+                        <TextView
+                            android:id="@+id/text_attribution"
+                            style="?android:attr/textAppearanceMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:linksClickable="true"
+                            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
+                            android:paddingBottom="@dimen/detail_parts_bottom_margin"
+                            android:textColor="@color/text_detalis_colors"
+                            android:textColorLink="@color/theme_accent"
+                            android:textSize="@dimen/detail_body_text_size" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
 

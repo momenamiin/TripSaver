@@ -28,6 +28,7 @@
           android:src="@drawable/ic_search_black_24dp"/>
 
       <AutoCompleteTextView
+          android:contentDescription="@string/Search_bar"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:layout_toRightOf="@+id/ic_magnify"

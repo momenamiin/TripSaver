@@ -2,8 +2,19 @@
     <string name="app_name">TripSaver</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Fab_Favourit">Favourit this Place</string>
+    <string name="Fab_Favourit">Favourit this Place Button</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="Search_bar">Places Search bar</string>
+    <string name="PlaceImage">Place Image</string>
+    <string name="placeName">Place Name</string>
+    <string name="placeAddress">Place Address</string>
+    <string name="placeattribution">Place attribution</string>
+
+    <string name="placeWebsite">Place website</string>
+
+    <string name="placeNumber">Place phone Number</string>
+
+    <string name="UpButton">Up Button</string>
 
 </resources>

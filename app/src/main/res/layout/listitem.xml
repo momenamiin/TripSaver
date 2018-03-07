@@ -17,6 +17,7 @@
 
     <!--suppress AndroidLintContentDescription -->
     <ImageView
+        android:contentDescription="@string/PlaceImage"
         android:id="@+id/thumbnail"
         android:adjustViewBounds="true"
         android:layout_width="match_parent"
@@ -25,6 +26,7 @@
         android:background="@color/photo_placeholder" />
 
     <TextView
+        android:contentDescription="@string/placeName"
         android:id="@+id/article_title"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="match_parent"
@@ -38,6 +40,7 @@
 
     <TextView
         android:id="@+id/article_subtitle"
+        android:contentDescription="@string/placeAddress"
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -43,18 +43,26 @@ import java.lang.reflect.Type;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class PlaceDetalisActivity extends AppCompatActivity {
     @BindView(R.id.article_title)
     TextView titleView;
     @BindView(R.id.article_byline)
     TextView bylineView;
-    @BindView(R.id.article_body)
-    TextView bodyView;
+    @BindView(R.id.text_phone_num)
+    TextView phonenum;
+    @BindView(R.id.text_website)
+    TextView website;
+    @BindView(R.id.text_adress)
+    TextView adress;
+    @BindView(R.id.text_attribution)
+    TextView attribution;
     @BindView(R.id.share_fab)
     FloatingActionButton Fab;
     @BindView(R.id.photo)
     ImageView imageView;
+    @BindView(R.id.action_up)
+    ImageView mUpButton;
+
     private PlaceData placeData;
     private GeoDataClient mGeoDataClient;
     private FirebaseDatabase mFirebaseDatabase;
@@ -69,6 +77,12 @@ public class PlaceDetalisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detalis);
         ButterKnife.bind(this);
+        mUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onSupportNavigateUp();
+            }
+        });
         Intent intent = getIntent();
         if (intent != null) {
             if (intent.getAction() == Intent.ACTION_ANSWER) {
@@ -88,9 +102,28 @@ public class PlaceDetalisActivity extends AppCompatActivity {
 
                 titleView.setText(placeDataFirebase.getName());
                 bylineView.setText(placeDataFirebase.getAdress());
-                bodyView.setText("Phone : " + placeDataFirebase.getPhoneNumber() + "\n" +
-                        "WebSite : " + placeDataFirebase.getWebsiteUri() + "\n" +
-                        "Attributions : " + placeDataFirebase.getAttributions());
+                if (placeDataFirebase.getPhoneNumber() != null){
+                    phonenum.setText(placeDataFirebase.getPhoneNumber() );
+                }else {
+                    phonenum.setText("Not exsist");
+                }
+
+                if (placeDataFirebase.getAdress() != null){
+                    adress.setText(placeDataFirebase.getPhoneNumber() );
+                }else {
+                    adress.setText("Not exsist");
+                }
+
+                if (placeDataFirebase.getWebsiteUri() != null){
+                    website.setText((CharSequence) placeDataFirebase.getWebsiteUri());
+                }else {
+                    website.setText("Not exsist");
+                }
+                if (placeDataFirebase.getAttributions() != null){
+                    attribution.setText(placeDataFirebase.getAttributions() );
+                }else {
+                    attribution.setText("Not exsist");
+                }
                 Gson gson2 = new Gson() ;
                 Type type2 = new TypeToken<PlaceDataFirebase>(){}.getType();
                 String json2  = gson2.toJson(placeDataFirebase , type2);
@@ -144,9 +177,29 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                 });
                 titleView.setText(placeData.getName());
                 bylineView.setText(placeData.getAdress());
-                bodyView.setText("Phone : " + placeData.getPhoneNumber() + "\n" +
-                        "WebSite : " + placeData.getWebsiteUri() + "\n" +
-                        "Attributions : " + placeData.getAttributions());
+
+                if (placeData.getPhoneNumber() != null){
+                    phonenum.setText(placeData.getPhoneNumber() );
+                }else {
+                    phonenum.setText("Not exsist");
+                }
+
+                if (placeData.getAdress() != null){
+                    adress.setText(placeData.getAdress() );
+                }else {
+                    adress.setText("Not exsist");
+                }
+
+                if (placeData.getWebsiteUri() != null){
+                    website.setText((CharSequence) placeData.getWebsiteUri());
+                }else {
+                    website.setText("Not exsist");
+                }
+                if (placeData.getAttributions() != null){
+                    attribution.setText(placeData.getAttributions() );
+                }else {
+                    attribution.setText("Not exsist");
+                }
 
                 Fab.setOnClickListener(new View.OnClickListener() {
                     @Override
