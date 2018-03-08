@@ -15,6 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Trigger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -28,10 +33,12 @@ import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -69,10 +76,28 @@ public class FavouritFragment extends Fragment {
           // get Arg
         }
     }
+    public void updatedata(ArrayList<PlaceDataFirebase> placeDataFirebases2){
+        Adapter adapter = new Adapter(placeDataFirebases2);
+        adapter.setHasStableIds(true);
+        mRecyclerView.setAdapter(adapter);
+        int columnCount = getResources().getInteger(R.integer.list_column_count);
+        StaggeredGridLayoutManager sglm =
+                new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(sglm);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(getContext()));
+        Job myJob = dispatcher.newJobBuilder()
+                .setService(MyJobService.class)
+                .setTag("my-unique-tag")
+                .setRecurring(true)
+                .setTrigger(Trigger.executionWindow(1000, 1100))
+                .build();
+        dispatcher.mustSchedule(myJob);
+
         // Inflate the layout for this fragment
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = mFirebaseAuth.getCurrentUser();
@@ -107,9 +132,7 @@ public class FavouritFragment extends Fragment {
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                /*
 
-                */
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -136,10 +159,7 @@ public class FavouritFragment extends Fragment {
 
         public Adapter(ArrayList<PlaceDataFirebase> placeDataFirebase) {
             mPlaceDataFirebase = placeDataFirebase;
-
         }
-
-
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

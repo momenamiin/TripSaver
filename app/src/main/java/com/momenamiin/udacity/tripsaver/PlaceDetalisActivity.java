@@ -249,13 +249,9 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                                         }
                                     });
                         }
-
-
                     }
                 });
-
             }
-
         }
     }
 

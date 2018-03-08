@@ -124,8 +124,10 @@ public class AppWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
     private static void getPhotos(final PlaceDataFirebase placeData, final Context context) {
+        Log.v("Memo" , "getphotos");
         mGeoDataClient = Places.getGeoDataClient(context, null);
         if (placeData != null) {
+            Log.v("Memo" , "place data != null");
 
             final String placeId = placeData.getId();
             if (placeId != null) {
@@ -144,6 +146,7 @@ public class AppWidget extends AppWidgetProvider {
                             photoResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoResponse>() {
                                 @Override
                                 public void onComplete(@NonNull Task<PlacePhotoResponse> task) {
+                                    Log.v("Memo" , "On Complete");
                                     photoMetadataBuffer.release();
                                     PlacePhotoResponse photo = task.getResult();
                                     bitmap = photo.getBitmap();
