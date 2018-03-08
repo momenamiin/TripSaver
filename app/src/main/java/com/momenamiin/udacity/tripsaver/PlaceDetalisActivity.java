@@ -105,24 +105,24 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                 if (placeDataFirebase.getPhoneNumber() != null){
                     phonenum.setText(placeDataFirebase.getPhoneNumber() );
                 }else {
-                    phonenum.setText("Not exsist");
+                    phonenum.setText(R.string.NotExsit);
                 }
 
                 if (placeDataFirebase.getAdress() != null){
                     adress.setText(placeDataFirebase.getPhoneNumber() );
                 }else {
-                    adress.setText("Not exsist");
+                    adress.setText(R.string.NotExsit);
                 }
 
                 if (placeDataFirebase.getWebsiteUri() != null){
                     website.setText((CharSequence) placeDataFirebase.getWebsiteUri());
                 }else {
-                    website.setText("Not exsist");
+                    website.setText(R.string.NotExsit);
                 }
                 if (placeDataFirebase.getAttributions() != null){
                     attribution.setText(placeDataFirebase.getAttributions() );
                 }else {
-                    attribution.setText("Not exsist");
+                    attribution.setText(R.string.NotExsit);
                 }
                 Gson gson2 = new Gson() ;
                 Type type2 = new TypeToken<PlaceDataFirebase>(){}.getType();
@@ -181,24 +181,24 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                 if (placeData.getPhoneNumber() != null){
                     phonenum.setText(placeData.getPhoneNumber() );
                 }else {
-                    phonenum.setText("Not exsist");
+                    phonenum.setText(R.string.NotExsit);
                 }
 
                 if (placeData.getAdress() != null){
                     adress.setText(placeData.getAdress() );
                 }else {
-                    adress.setText("Not exsist");
+                    adress.setText(R.string.NotExsit);
                 }
 
                 if (placeData.getWebsiteUri() != null){
                     website.setText((CharSequence) placeData.getWebsiteUri());
                 }else {
-                    website.setText("Not exsist");
+                    website.setText(R.string.NotExsit);
                 }
                 if (placeData.getAttributions() != null){
                     attribution.setText(placeData.getAttributions() );
                 }else {
-                    attribution.setText("Not exsist");
+                    attribution.setText(R.string.NotExsit);
                 }
 
                 Fab.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +208,7 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                             mDatabaseRefrence.child(placeData.getName()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Toast.makeText(PlaceDetalisActivity.this, "Place Removed",
+                                    Toast.makeText(PlaceDetalisActivity.this, R.string.PlaceRemoved,
                                             Toast.LENGTH_LONG).show();
                                     Fab.setImageResource(R.drawable.ic_favorite_border_black_24dp);
 
@@ -216,7 +216,7 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                             });
 
                         }else {
-                            Toast.makeText(PlaceDetalisActivity.this, "Please wait while adding place to favourit",
+                            Toast.makeText(PlaceDetalisActivity.this, R.string.addingplace,
                                     Toast.LENGTH_LONG).show();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             if (bitmap != null) {
@@ -235,7 +235,7 @@ public class PlaceDetalisActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onSuccess(Void aVoid) {
                                                     Fab.setImageResource(R.drawable.ic_favorite_black_24dp);
-                                                    Toast.makeText(PlaceDetalisActivity.this, "Place Added to Favourit",
+                                                    Toast.makeText(PlaceDetalisActivity.this, R.string.placeadded,
                                                             Toast.LENGTH_SHORT).show();
                                                 }
                                             });

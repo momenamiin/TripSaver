@@ -64,7 +64,7 @@ public class AppWidget extends AppWidgetProvider {
 
         if (widgetTextString == null){
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
-            views.setTextViewText(R.id.appwidget_text, "Please Choose Place from app first");
+            views.setTextViewText(R.id.appwidget_text, context.getResources().getString(R.string.chooseplace));
             views.setViewVisibility(R.id.appwidget_text , View.GONE);
         }else {
             // Construct the RemoteViews object
@@ -106,7 +106,7 @@ public class AppWidget extends AppWidgetProvider {
 
         if (widgetTextString == null){
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
-            views.setTextViewText(R.id.appwidget_text, "Please choose Place from app first");
+            views.setTextViewText(R.id.appwidget_text, context.getResources().getString(R.string.chooseplace));
             views.setViewVisibility(R.id.appwidget_text , View.GONE);
         }else {
             // Construct the RemoteViews object
@@ -124,19 +124,15 @@ public class AppWidget extends AppWidgetProvider {
         // Enter relevant functionality for when the last widget is disabled
     }
     private static void getPhotos(final PlaceDataFirebase placeData, final Context context) {
-        Log.v("Memo" , "getphotos");
         mGeoDataClient = Places.getGeoDataClient(context, null);
         if (placeData != null) {
-            Log.v("Memo" , "place data != null");
 
             final String placeId = placeData.getId();
             if (placeId != null) {
-                Log.v("Memo" , "place id != null");
                 final Task<PlacePhotoMetadataResponse> photoMetadataResponse = mGeoDataClient.getPlacePhotos(placeId);
                 photoMetadataResponse.addOnSuccessListener(new OnSuccessListener<PlacePhotoMetadataResponse>() {
                     @Override
                     public void onSuccess(PlacePhotoMetadataResponse placePhotoMetadataResponse) {
-                        Log.v("Memo" , "On Success");
                         // Get the PlacePhotoMetadataBuffer (metadata for all of the photos).
                         final PlacePhotoMetadataBuffer photoMetadataBuffer = placePhotoMetadataResponse.getPhotoMetadata();
                         // Get the first photo in the list.
@@ -148,7 +144,6 @@ public class AppWidget extends AppWidgetProvider {
                             photoResponse.addOnCompleteListener(new OnCompleteListener<PlacePhotoResponse>() {
                                 @Override
                                 public void onComplete(@NonNull Task<PlacePhotoResponse> task) {
-                                    Log.v("Memo" , "On Complete");
                                     photoMetadataBuffer.release();
                                     PlacePhotoResponse photo = task.getResult();
                                     bitmap = photo.getBitmap();

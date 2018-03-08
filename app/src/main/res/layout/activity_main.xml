@@ -19,15 +19,15 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="@dimen/list_toolbar_side_margin"
-            android:layout_marginRight="@dimen/list_toolbar_side_margin">
+            android:layout_marginStart="@dimen/list_toolbar_side_margin"
+            android:layout_marginEnd="@dimen/list_toolbar_side_margin">
 
             <TextView
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
-                android:text="Trip Saver"
+                android:text="@string/app_name"
                 android:textStyle="bold"
                 android:textSize="33sp"/>
 

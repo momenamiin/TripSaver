@@ -10,11 +10,21 @@
     <string name="placeName">Place Name</string>
     <string name="placeAddress">Place Address</string>
     <string name="placeattribution">Place attribution</string>
-
     <string name="placeWebsite">Place website</string>
-
     <string name="placeNumber">Place phone Number</string>
-
     <string name="UpButton">Up Button</string>
+    <string name="NotExsit">Not Exsisit</string>
+    <string name="PlaceRemoved">Place Removed</string>
+    <string name="addingplace">Please wait while adding place to favourit</string>
+    <string name="chooseplace">Please Choose Place from app first</string>
+    <string name="ErrorContacting">Error contacting API:</string>
+    <string name="placeadded">Not Place Added to Favourit</string>
+    <string name="Phone">Phone : </string>
+    <string name="website">website : </string>
+    <string name="Address">Address : </string>
+    <string name="Attribution">Attribution : </string>
+    <string name="Signout">Signout</string>
+
+
 
 </resources>

@@ -15,6 +15,7 @@ package com.momenamiin.udacity.tripsaver;
  *  limitations under the License.
  */
 
+        import android.annotation.SuppressLint;
         import android.content.Context;
         import android.graphics.Typeface;
         import android.text.style.CharacterStyle;
@@ -195,6 +196,7 @@ public class PlaceAutocompleteAdapter
      * @see GeoDataClient#getAutocompletePredictions(String, LatLngBounds, AutocompleteFilter)
      * @see AutocompletePrediction#freeze()
      */
+    @SuppressLint("LongLogTag")
     private ArrayList<AutocompletePrediction> getAutocomplete(CharSequence constraint) {
         Log.i(TAG, "Starting autocomplete query for: " + constraint);
 
@@ -222,7 +224,7 @@ public class PlaceAutocompleteAdapter
             return DataBufferUtils.freezeAndClose(autocompletePredictions);
         } catch (RuntimeExecutionException e) {
             // If the query did not complete successfully return null
-            Toast.makeText(getContext(), "Error contacting API: " + e.toString(),
+            Toast.makeText(getContext(), R.string.ErrorContacting + e.toString(),
                     Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Error getting autocomplete prediction API call", e);
             return null;
